@@ -24,7 +24,7 @@
 -  **AI Chat Assistant:** Smart chatbot to answer food-related questions using Ollama’s Gemma2:2b model.  
 -  **Admin Dashboard:** Manage meals (Add / Edit / Delete) and view analytics like total orders & revenue.
 
-## ⚙️ Setup Instructions
+##  Setup Instructions
 
 ### Clone the Repository
 ```bash
