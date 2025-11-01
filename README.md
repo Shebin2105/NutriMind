@@ -1,146 +1,78 @@
-🍽️ Meal Finder Web App
-A smart meal discovery platform built using FastAPI, Supabase, and Vanilla JavaScript.
-🚀 Overview
+# 🥗 NutriMind
 
-Meal Finder is a web application that allows users to explore, search, and order meals efficiently.
-It integrates a FastAPI backend (connected to Supabase for data storage) and a responsive JavaScript frontend.
-Admins can manage meals through an Admin Dashboard, while users can browse and order seamlessly.
+**NutriMind** is an intelligent meal recommendation and management web app that helps users explore, search, and order healthy meals — powered by AI-based natural language understanding and Supabase database integration.
 
-🧩 Key Features
-👥 User Features
+---
 
-Browse all available meals with images and details
+## 🚀 Tech Stack
 
-Search meals instantly using keyword-based search
+- **Frontend:** HTML, CSS, JavaScript  
+- **Backend:** FastAPI (Python)  
+- **Database:** Supabase (PostgreSQL)  
+- **AI Integration:** Ollama + Gemma2:2b (LLM model)  
+- **Authentication:** Supabase Auth  
+- **Deployment:** Local / Cloud (customizable)
 
-View meal details in a responsive popup modal
+---
 
-Place and view orders (connected to Supabase database)
+## 🧠 Key Features
 
-🧑‍💼 Admin Features
+- 🔍 **Meal Search:** Users can search meals by name, ingredients, or preferences.  
+- 🧾 **Detailed Meal View:** Displays nutritional info, calories, and ingredients in a modal popup.  
+- 🛒 **Order Management:** Handles adding, viewing, and storing meal orders in Supabase.  
+- 👤 **User Authentication:** Signup & login using Supabase Auth.  
+- 🤖 **AI Chat Assistant:** Smart chatbot to answer food-related questions using Ollama’s Gemma2:2b model.  
+- 🧮 **Admin Dashboard:** Manage meals (Add / Edit / Delete) and view analytics like total orders & revenue.
 
-Secure admin dashboard to add, edit, and delete meals
+---
 
-Manage orders and update meal details
+## 🏗️ Project Structure
 
-Real-time updates using Supabase integration
-
-⚙️ Technical Features
-
-FastAPI RESTful API backend
-
-Supabase for storage and authentication
-
-Frontend built with HTML, CSS, and vanilla JS
-
-Modular code with routes for /meals, /search, /orders, /login, and /signup
-
-🏗️ Architecture
-Frontend (HTML, CSS, JS)
-        │
-        ▼
-FastAPI Backend (Python)
-        │
-        ▼
-Supabase Database (PostgreSQL + Storage)
-
-🔄 Data Flow:
-
-User searches or selects a meal on the frontend
-
-Request is sent to the FastAPI /search or /meals endpoint
-
-Backend fetches data from Supabase and returns JSON
-
-JavaScript renders results dynamically using modals
-
-🧠 Tech Stack
-Component	Technology
-Frontend	HTML, CSS, JavaScript
-Backend	FastAPI (Python)
-Database	Supabase (PostgreSQL)
-Authentication	Supabase Auth
-Storage	Supabase Storage (for meal images)
-Hosting (optional)	GitHub Pages / Render / Vercel
-📁 Folder Structure
-meal_project/
+NutriMind/
 │
 ├── backend/
-│   ├── main.py                # FastAPI main application
-│   ├── routes/
-│   │   ├── meals.py
-│   │   ├── orders.py
-│   │   ├── auth.py
-│   ├── supabase_client.py     # Supabase connection setup
-│   ├── gen_embed.py           # For generating embeddings (AI search)
-│   └── requirements.txt
+│ ├── main.py # FastAPI backend entry point
+│ ├── routes/
+│ │ ├── meals.py # Handles /meals and /search routes
+│ │ ├── orders.py # Handles /orders route
+│ │ ├── auth.py # Handles /login and /signup
+│ ├── gen_embed.py # Embedding generator for AI responses
+│ ├── requirements.txt # Backend dependencies
 │
 ├── frontend/
-│   ├── index.html             # User page
-│   ├── admin-dashboard.html   # Admin interface
-│   ├── admin-dashboard.js     # JS logic for admin
-│   ├── admin-dashboard.css
-│   ├── style.css
-│   └── script.js              # Main JS for user interface
+│ ├── index.html # User interface
+│ ├── admin-dashboard.html # Admin view
+│ ├── admin-dashboard.js # Dashboard functionality
+│ ├── admin-dashboard.css # Dashboard styling
+│ ├── script.js # Main UI logic & chatbot connection
 │
-└── README.md
+├── README.md # Project documentation
+└── .env # Environment variables (Supabase keys, API URLs)
 
-⚙️ Setup Instructions
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/meal-finder.git
-cd meal-finder
+---
 
-2️⃣ Backend Setup
+## ⚙️ Setup Instructions
+
+### Clone the Repository
+```bash
+git clone https://github.com/Shebin2105/NutriMind.git
+cd NutriMind
+```
+### Backend Setup
 cd backend
 pip install -r requirements.txt
-
-
-Create a .env file inside /backend:
-
-SUPABASE_URL=your_supabase_url
-SUPABASE_KEY=your_service_key
-
-
-Run the backend:
-
 uvicorn main:app --reload
 
-3️⃣ Frontend Setup
+### Frontend Setup
+cd frontend
+python -m http.server 8000
 
-Open frontend/index.html in your browser
-(or host using VS Code Live Server)
+###Author
 
-🔗 API Endpoints
-Method	Endpoint	Description
-GET	/meals	Fetch all meals
-GET	/search?query=meal_name	Search meals
-POST	/orders	Place an order
-POST	/login	User login
-POST	/signup	Register user
-💻 Example Screens
+Shebin Chinnaraj Sivakumar
+Computer Science Undergraduate, VIT Chennai
+🔗 GitHub
+ | LinkedIn
 
-Home Page: Meal listing with search
-
-Modal Popup: Meal details on click
-
-Admin Dashboard: Add / Edit / Delete meals
-
-Orders Page: Displays user orders
-
-📈 Future Enhancements
-
-AI-based meal recommendations using embeddings
-
-User order history & tracking
-
-Payment gateway integration
-
-Role-based access for admins and users
-
-Dark mode UI and better analytics dashboard
-
-👨‍💻 Developed by
-
-Shebin
-Intern @ Patterns Cognitive
-Learning Web Development, Databases, and AI Integration
+### License
+This project is licensed under the MIT License — feel free to use and modify for educational or personal use.
