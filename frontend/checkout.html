@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛒 Checkout - Meal Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="checkout.css">
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <div class="header-content">
+      <h1>🛒 Checkout</h1>
+      <p class="tagline">Complete your meal order</p>
+    </div>
+  </header>
+
+  <!-- Main Checkout Container -->
+  <main class="checkout-container">
+    <div class="checkout-wrapper">
+      <!-- Order Summary Section -->
+      <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div id="mealDetails" class="meal-details">
+          <div class="loading">
+            <div class="spinner"></div>
+            <p>Loading meal details...</p>
+          </div>
+        </div>
+        <div class="order-total">
+          <div class="total-row">
+            <span>Subtotal:</span>
+            <span id="subtotal">₹0.00</span>
+          </div>
+          <div class="total-row">
+            <span>Delivery Fee:</span>
+            <span id="deliveryFee">₹0.00</span>
+          </div>
+          <div class="total-row total">
+            <span>Total Amount:</span>
+            <span id="totalAmount">₹0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checkout Form Section -->
+      <div class="checkout-form-wrapper">
+        <h2>Delivery Information</h2>
+        
+        <form id="orderForm" class="checkout-form">
+          <!-- Personal Information -->
+          <div class="form-section">
+            <h3>📝 Personal Information</h3>
+            
+            <div class="form-group">
+              <label for="name">Full Name *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                placeholder="Enter your full name"
+                required
+              >
+              <span class="error-message" id="nameError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="Enter your email"
+                required
+              >
+              <span class="error-message" id="emailError"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number *</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="Enter your 10-digit phone number"
+                pattern="[0-9]{10}"
+                required
+              >
+              <span class="error-message" id="phoneError"></span>
+            </div>
+          </div>
+
+          <!-- Address Information -->
+          <div class="form-section">
+            <h3>📍 Delivery Address</h3>
+            
+            <div class="form-group">
+              <label for="address">Street Address *</label>
+              <input 
+                type="text" 
+                id="address" 
+                name="address" 
+                placeholder="Enter your street address"
+                required
+              >
+              <span class="error-message" id="addressError"></span>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="city">City *</label>
+                <input 
+                  type="text" 
+                  id="city" 
+                  name="city" 
+                  placeholder="City"
+                  required
+                >
+                <span class="error-message" id="cityError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="zipcode">Zip Code *</label>
+                <input 
+                  type="text" 
+                  id="zipcode" 
+                  name="zipcode" 
+                  placeholder="Zip Code"
+                  pattern="[0-9]{6}"
+                  required
+                >
+                <span class="error-message" id="zipcodeError"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="notes">Delivery Notes (Optional)</label>
+              <textarea 
+                id="notes" 
+                name="notes" 
+                placeholder="Add any special delivery instructions..."
+                rows="3"
+              ></textarea>
+            </div>
+          </div>
+
+          <!-- Payment Information -->
+          <div class="form-section">
+            <h3>💳 Payment Method</h3>
+            
+            <div class="payment-options">
+              <label class="payment-option">
+                <input type="radio" name="payment" value="card" checked>
+                <span>💳 Credit/Debit Card</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="upi">
+                <span>📱 UPI</span>
+              </label>
+              <label class="payment-option">
+                <input type="radio" name="payment" value="cod">
+                <span>🏠 Cash on Delivery</span>
+              </label>
+            </div>
+            <!-- UPI Payment Section -->
+        <div id="upiSection" class="upi-section" style="display: none;">
+          <h3>📱 UPI Payment</h3>
+          <p>Scan the QR code below using any UPI app (GPay, PhonePe, Paytm, etc.)</p>
+
+          <div class="upi-box">
+            <img src="images/upi_qr.png" alt="UPI QR Code" class="upi-qr">
+            <p class="upi-id"><strong>UPI ID:</strong> mealfinder@upi</p>
+            <button type="button" class="btn-secondary" id="upiPaidBtn">✅ I’ve Paid</button>
+          </div>
+        </div>
+
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="form-group checkbox">
+            <label>
+              <input type="checkbox" id="terms" name="terms" required>
+              <span>I agree to the terms and conditions *</span>
+            </label>
+            <span class="error-message" id="termsError"></span>
+          </div>
+
+          <!-- Form Actions -->
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" onclick="window.history.back()">
+              ← Back to Meals
+            </button>
+            <button type="submit" class="btn-primary">
+              🎉 Place Order
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="checkout.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Signup | Meal Finder</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="login.css">
+</head>
+<body class="login-body">
+
+  <div class="login-container">
+    <div class="login-brand">
+      <div class="brand-icon">🍴</div>
+      <h1>Admin Registration</h1>
+      <p>Create your account to manage the system</p>
+    </div>
+
+    <div class="login-box">
+      <form id="adminSignupForm" class="auth-form active-form">
+        <h2>Create Admin Account 🧑‍💻</h2>
+
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon">👤</span>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <span class="input-icon">📧</span>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <span class="input-icon">🔒</span>
+            <input type="password" id="password" placeholder="Create a password" required>
+            <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn-submit">Sign Up 🎉</button>
+
+        <p class="form-footer">
+          Already have an account?
+          <a href="admin-login.html">Login here</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin-signup.js"></script>
+</body>
+</html>

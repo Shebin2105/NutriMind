@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Discover meals based on your taste and nutrition with AI-powered semantic search">
+  <title>🍽️ Meal Finder</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">🍽️ Meal Finder</div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="checkout.html">Checkout</a></li>
+        <li><a href="assistant.html">AI Assistant 🤖</a></li>
+        <!-- 🆕 Admin Panel link -->
+        <li><a href="admin-login.html" class="admin-link">Admin Panel ⚙️</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-content">
+      <h1>Discover meals based on your taste and nutrition</h1>
+      <p class="tagline">Powered by AI to find your perfect meal</p>
+    </div>
+  </header>
+
+  <!-- Search Section -->
+  <div class="search-container">
+    <div class="search-bar">
+      <input 
+        id="queryInput" 
+        type="text" 
+        placeholder="Search meals or ingredients…" 
+        autocomplete="off"
+        aria-label="Search meals"
+      >
+      <button id="searchBtn" aria-label="Search">🔍 Search</button>
+    </div>
+  </div>
+
+  <!-- Controls Section -->
+  <div class="controls">
+    <div class="filters">
+      <button class="filter-btn active" data-filter="all">All Meals</button>
+      <button class="filter-btn" data-filter="high-protein">High Protein</button>
+      <button class="filter-btn" data-filter="low-calorie">Low Calorie</button>
+    </div>
+    <div class="stats" id="mealStats">Loading meals...</div>
+  </div>
+
+  <!-- Meals Container -->
+  <main id="mealContainer">
+    <div class="loading">
+      <div class="spinner"></div>
+      <p>Loading delicious meals...</p>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="mealModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <div class="modal-image-container">
+        <img id="modalImage" src="" alt="Meal Image">
+      </div>
+      <div class="modal-info">
+        <h2 id="modalName"></h2>
+        <p class="modal-cuisine" id="modalCuisine"></p>
+        <p class="modal-description" id="modalDescription"></p>
+
+        <div class="nutrition-grid">
+          <div class="nutrition-item">
+            <span class="nutrition-icon">🔥</span>
+            <div>
+              <p class="nutrition-label">Calories</p>
+              <p class="nutrition-value" id="modalCalories"></p>
+            </div>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-icon">💪</span>
+            <div>
+              <p class="nutrition-label">Protein</p>
+              <p class="nutrition-value" id="modalProtein"></p>
+            </div>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-icon">🌾</span>
+            <div>
+              <p class="nutrition-label">Carbs</p>
+              <p class="nutrition-value" id="modalCarbs"></p>
+            </div>
+          </div>
+          <div class="nutrition-item">
+            <span class="nutrition-icon">🥑</span>
+            <div>
+              <p class="nutrition-label">Fats</p>
+              <p class="nutrition-value" id="modalFats"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-actions">
+      <button id="addToCartBtn">🛒 Add to Cart</button>
+      <button id="addToWishlistBtn">❤️ Add to Wishlist</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

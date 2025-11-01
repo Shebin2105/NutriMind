@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Meal Finder</title>
+  <link rel="stylesheet" href="admin-dashboard.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Sidebar / Navbar -->
+  <aside class="admin-sidebar">
+    <div class="admin-logo">
+      <i class="fas fa-utensils"></i>
+      <span>Admin Panel</span>
+    </div>
+    <ul class="admin-menu">
+      <li data-tab="meals" class="active-tab">
+        <i class="fas fa-hamburger"></i>
+        <span>Meal Management</span>
+      </li>
+      <li data-tab="orders">
+        <i class="fas fa-shopping-cart"></i>
+        <span>Order Management</span>
+      </li>
+      <li data-tab="analytics">
+        <i class="fas fa-chart-line"></i>
+        <span>Analytics</span>
+      </li>
+      <li id="logoutBtn" class="logout-btn">
+        <i class="fas fa-sign-out-alt"></i>
+        <span>Logout</span>
+      </li>
+    </ul>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="admin-main">
+    <div class="admin-header">
+      <h1 id="pageTitle">Meal Management</h1>
+      <div class="admin-user">
+        <i class="fas fa-user-shield"></i>
+        <span>Admin</span>
+      </div>
+    </div>
+
+    <!-- Meal Management -->
+    <section id="meals" class="admin-tab-content active-tab-content">
+      <div class="content-card">
+        <div class="card-header">
+          <h2><i class="fas fa-utensils"></i> Manage Meals</h2>
+          <button id="newAddMealBtn" class="btn-primary">
+            <i class="fas fa-plus"></i> Add New Meal
+          </button>
+        </div>
+
+        <!-- Add Meal Form (hidden by default) -->
+        <div id="addMealForm" style="display:none; margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 8px; background: #f9f9f9;">
+          <input type="text" id="mealName" placeholder="Meal name" required>
+          <input type="number" id="mealPrice" placeholder="Price" required>
+          <input type="text" id="mealIngredients" placeholder="Ingredients" required>
+          <input type="number" id="mealCalories" placeholder="Calories" required>
+          <input type="number" id="mealProtein" placeholder="Protein" required>
+          <input type="number" id="mealCarbs" placeholder="Carbs" required>
+          <input type="number" id="mealFats" placeholder="Fats" required>
+          <button id="submitMeal" type="button" class="btn-primary">Add Meal</button>
+        </div>
+
+        <div id="mealList" class="data-container">
+          <div class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading meals...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Order Management -->
+    <section id="orders" class="admin-tab-content">
+      <div class="content-card">
+        <div class="card-header">
+          <h2><i class="fas fa-shopping-bag"></i> Recent Orders</h2>
+          <button class="btn-secondary" onclick="loadOrders()">
+            <i class="fas fa-sync-alt"></i> Refresh
+          </button>
+        </div>
+        <div id="orderList" class="data-container">
+          <div class="loading">
+            <i class="fas fa-spinner fa-spin"></i> Loading orders...
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Analytics -->
+    <section id="analytics" class="admin-tab-content">
+      <div class="analytics-grid">
+        <div class="stat-card">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalOrders">0</h3>
+            <p>Total Orders</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+            <i class="fas fa-rupee-sign"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalRevenue">₹0</h3>
+            <p>Total Revenue</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+            <i class="fas fa-hamburger"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="totalMeals">0</h3>
+            <p>Total Meals</p>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="stat-info">
+            <h3 id="avgOrder">₹0</h3>
+            <p>Avg Order Value</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="admin-dashboard.js"></script>
+</body>
+</html>
